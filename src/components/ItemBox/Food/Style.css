@@ -1,0 +1,257 @@
+/* FoodBox */
+.foodBox {
+    display: flex;
+    background-color: #fff;
+    border-radius: 15px;
+    width: 100%;
+}
+
+#food-image {
+    width: 25%;
+    overflow: hidden;
+    border-radius: 15px 0px 0px 15px;
+}
+
+#food-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#food-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    padding: 20px 15px;
+}
+
+#food-info #food-name {
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+#food-info p {
+    margin: 5px 0;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+#addFood {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-top: auto;
+    padding: 15px 20px;
+}
+
+#addFood button {
+    background-color: white;
+    color: #b14c02;
+    border: 1px solid #b14c02;
+    border-radius: 25px;
+    padding: 0px 18px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+#addFood button:hover {
+    background-color: #ffb689;
+}
+
+@media screen and (max-width: 900px) {
+    #food-image {
+        width: 35%;
+    }
+
+    #food-info {
+        padding: 10px 15px;
+    }
+
+    #food-info #food-name {
+        font-size: 13px;
+    }
+    
+    #food-info p {
+        font-size: 12px;
+    }
+
+    #addFood button {
+        font-size: 12px;
+    }
+}
+
+/* OrderBox */
+.OrderBox {
+    display: flex;
+    background-color: #fff;
+    border-radius: 10px;
+    width: 100%;
+}
+
+#order-image {
+    width: 35%;
+    overflow: hidden;
+    border-radius: 10px 0px 0px 10px;
+}
+
+#order-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#order-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 10px 0px 0px 15px;
+}
+
+#order-info #food-name {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22.5px;
+}
+
+#order-info p {
+    margin: 0px 0;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 22.5px;
+    color: #000000;
+}
+
+#qty {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-top: auto;
+    padding: 12px;
+}
+
+#qty .manageQty {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+#qty .manageQty img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#numQty{
+    width: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#numQty p{
+    margin: 0%;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22.5px;
+}
+
+#numQty img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* MenuBox */
+.MenuBox {
+    display: flex;
+    background-color: #fff;
+    border-radius: 15px;
+    width: 100%;
+}
+
+#menu-image {
+    width: 25%;
+    overflow: hidden;
+    border-radius: 15px 0px 0px 15px;
+}
+
+#menu-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#menu-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px 20px;
+}
+
+#menu-info #food-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0%;
+}
+
+#food-info #food-name {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+#food-info #food-desc {
+    font-weight: 300;
+    font-style: italic;
+    font-size: 10px;
+}
+
+#menu-info #food-price{
+    font-weight: 400;
+    font-size: 12px;
+}
+
+#manageFood {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-top: auto;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+
+#manageFood #edit {
+    width: 15px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#manageFood #edit img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#manageFood #remove {
+    width: 15px;
+    cursor: pointer;
+}
+
+#manageFood #remove img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

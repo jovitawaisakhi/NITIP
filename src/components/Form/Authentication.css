@@ -1,0 +1,80 @@
+.forms {
+    background-color: #eeeeee;
+    margin: 40px auto;
+    max-width: 500px;
+    padding: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.forms form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.forms form h2{
+    color:#b14c02;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.forms .field{
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.forms label {
+    width: 100%;
+    text-align: left;
+}
+
+.forms input {
+    background-color: #f7f7f7;
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #f3f3f3;
+    border-radius: 10px;
+}
+
+.forms .Lbl_Status{
+    color: red;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.forms form .redirect{
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.forms a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #b14c02;
+}
+
+.forms a:hover {
+    text-decoration: underline;
+    color: #d96519;
+}
+
+.forms button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #b14c02;
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #9b4202;
+}

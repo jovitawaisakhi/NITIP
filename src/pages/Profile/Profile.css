@@ -1,0 +1,47 @@
+#content-profile{
+    padding-top: 40px;
+    padding-bottom: 60px;
+    justify-content: center;
+    align-items: center;
+}
+
+#profile-picture{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+#picture{
+    width: 145px;
+    height: 145px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+#picture img{
+    width: 100%;
+    object-fit: cover;
+}
+
+#personal-info{
+    display: flex;
+    flex-direction: column;
+}
+
+#save-data{
+    width: 100%;
+}
+
+#save-data button{
+    width: 100%;
+    height: 45px;
+    background-color: #b14c02;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22.5px;
+    cursor: pointer;
+}

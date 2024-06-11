@@ -1,0 +1,46 @@
+.FOBox {
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.FOBox #name {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.FOBox #food {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.FOBox #note {
+    font-weight: 300;
+    font-style: italic;
+    font-size: 10px;
+    line-height: 15px;
+}
+
+.FOBox button {
+    align-self: end;
+    border: none;
+    border-radius: 8px;
+    background-color: #b14c02;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    width: 85px;
+    height: 28px;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.FOBox button.clicked {
+    background-color: #5b5b5b;
+}

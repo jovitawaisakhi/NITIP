@@ -1,0 +1,77 @@
+.welcome h2 {
+    color: #b14c02;
+}
+
+#search-box {
+    display: flex;
+    align-items: center;
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#search-box img {
+    margin-left: 15px;
+    margin-right: 10px;
+    width: 17px;
+    height: 17px;
+}
+
+#search-box input {
+    background-color: #f7f7f7;
+    flex-grow: 1;
+    padding: 8px;
+    border: none;
+}
+
+#search-box input::placeholder {
+    color: #c3c3c3;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 22.5px;
+    opacity: 1;
+}
+
+.top-recomen h2 {
+    color: #b14c02;
+}
+
+.slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+.slider::-webkit-scrollbar {
+    display: none;
+}
+
+.slider a{
+    text-decoration: none;
+    color: black;
+}
+
+.promo {
+    background-color: #b14c02;
+    color: white;
+    margin-top: 50px;
+    padding: 30px;
+    border-radius: 30px 30px 0px 0px;
+}
+
+.promo h2 {
+    font-weight: bold;
+}
+
+.promo #food-promo-list {
+    display: flex;
+}

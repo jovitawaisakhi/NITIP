@@ -1,0 +1,80 @@
+#content-OS{
+    padding-top: 40px;
+    padding-bottom: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+#title{
+    text-align: center;
+}
+
+#title h2{
+    font-weight: 600;
+    font-size: 20px;
+}
+
+#status{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#status label{
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.left-label {
+    position: absolute;
+    right: 55%;
+}
+
+.right-label {
+    position: absolute;
+    left: 55%;
+}
+
+#status #confirmed{
+    height: 178px;
+    margin-bottom: -2px;
+    color: #b14c02;
+}
+
+#status #confirmed img{
+    filter: sepia(1) saturate(1000%) hue-rotate(10deg) brightness(0.8);
+}
+
+#status #processing{
+    height: 178px;
+    margin-bottom: -2px;
+}
+
+#status #finished{
+    height: 178px;
+    margin-bottom: -2px;
+}
+
+#pickup{
+    width: 150px;
+    height: 47px;
+    margin-top: 30px;
+    margin-bottom: 70px;
+}
+
+#pickup button{
+    width: 100%;
+    height: 100%;
+    background-color: #b14c02;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    cursor: pointer;
+}

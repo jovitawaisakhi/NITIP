@@ -1,0 +1,49 @@
+#content-menuDetail{
+    padding-top: 20px;
+    padding-bottom: 60px;
+}
+
+#content-menuDetail h2{
+    margin-bottom: 50px;
+}
+
+#menu-picture{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+#menu-picture #picture{
+    width: 145px;
+    height: 145px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+#menu-picture #picture img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#menu-infos{
+    padding: 0%;
+}
+
+#add{
+    width: 100%;
+}
+
+#add button{
+    width: 100%;
+    height: 45px;
+    background-color: #b14c02;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22.5px;
+    cursor: pointer;
+}

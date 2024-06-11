@@ -1,0 +1,128 @@
+#content-payment{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.order-summary{
+    margin-bottom: 10px;
+}
+
+.order-summary a{
+    text-decoration: none;
+}
+
+.orderList {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+#addOrder{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #dedede;
+    height: 47px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#addOrder img{
+    width: 30px;
+}
+
+#notes {
+    display: flex;
+    align-items: center;
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#notes img {
+    margin-right: 15px;
+    width: 17px;
+    height: 17px;
+}
+
+#notes input {
+    background-color: #f7f7f7;
+    flex-grow: 1;
+    padding: 8px;
+    border: none;
+}
+
+#notes input::placeholder {
+    color: #c3c3c3;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 22.5px;
+    opacity: 1;
+}
+
+.payment-detail{
+    margin-top: 10px;   
+}
+
+.payment-detail img{
+    width: 100%;
+    margin-top: 0px;
+}
+
+#price-info{
+    background-color: white;
+    height: 107px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.price{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 15px;
+}
+
+#line-price{
+    line-height: 0px;
+}
+
+#total-price{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    margin-top: 15px;
+}
+
+#time-estimation{
+    padding-left: 20px;
+    font-weight: 275;
+    font-style: italic;
+    font-size: 11px;
+    line-height: 16.5px;
+}
+
+#pay{
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+#pay button{
+    width: 100%;
+    height: 45px;
+    background-color: #b14c02;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22.5px;
+    cursor: pointer;
+}
