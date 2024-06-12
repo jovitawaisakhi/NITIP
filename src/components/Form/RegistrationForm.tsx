@@ -4,8 +4,6 @@ import './Authentication.css';
 import { Register } from '../../services/UserService';
 
 const RegistrationForm: React.FC = () => {
-
-
     const [username, setUsername] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
@@ -67,6 +65,8 @@ const RegistrationForm: React.FC = () => {
         }
 
         setStatus(newStatus);
+
+        console.log(email)
 
         if (valid) {
             Register(navigate, email, password);
