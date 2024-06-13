@@ -1,44 +1,24 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { auth, db } from "../firebase";
-import { NavigateFunction } from "react-router-dom";
-import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../firebase";
 
-export function Register(navigate : NavigateFunction, email : string, password : string){
-    createUserWithEmailAndPassword(auth, email, password).then(
-        async(user) => {
-            await addDoc(collection(db, "users"), {
-                userID : user.user.uid,
-                email : email,
-                role : 'customer',
-                status : 'approve',
-                phoneNumber : '',
-                linkProfile : '',
-                dob : ''
-            })
+export async function getRoleUser(){
+    const email = localStorage.getItem('user');
+    let role : string | null = null;
 
-            navigate('/login')
-        }
-    )
-}
+    if(email){
+        const q = query(collection(db, "users"), where('email', '==', email));
 
-export function Login(navigate : NavigateFunction, email : string, password : string){
-    signInWithEmailAndPassword(auth, email, password).then( 
-        async() => {
-            const q = query(collection(db, "users"), where('email', '==', email));
+        const querySnapshot = await getDocs(q);
 
-            const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+            const data = doc.data()
             
-            querySnapshot.forEach((doc) => {
-                const data = doc.data()
-                const status = data.status
+            role = data.role
+        })
 
-                if (status == 'approved') {
-                    navigate('/home');
-                } else {
-                    navigate('/login')
-                }
-            })
-        }
-    )
+        return role
+    } 
+
+    return null
 }
 

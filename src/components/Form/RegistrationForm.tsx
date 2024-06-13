@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Authentication.css';
-import { Register } from '../../services/UserService';
+import { Register } from '../../services/AuthService';
 
 const RegistrationForm: React.FC = () => {
     const [username, setUsername] = useState<string>('');

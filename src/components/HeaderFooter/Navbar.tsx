@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import appLogo from '../../assets/AppLogo.png';
 import dropdown from '../../assets/dropdown.png';
 import './HeaderFooter.css';
+import UserDropdownMenu from './UserDropdownMenu';
 
 const Navbar: React.FC = () => {
     const [dropdownVisible, setDropdownVisible] = useState<boolean>(false);
@@ -23,16 +24,7 @@ const Navbar: React.FC = () => {
                     <img src={dropdown} alt="" />
                 </button>
                 {dropdownVisible && (
-                    <ul className="dropdown-menu">
-                        <li><Link to="/cart">Cart</Link></li>
-                        <li><Link to="/receiveOrder">Receive Order</Link></li>
-                        <li><Link to="/finishOrder">Finish Order</Link></li>
-                        <li><Link to="/restaurantDetail">Restaurant Detail</Link></li>
-                        <li><Link to="/profile">Profile</Link></li>
-                        <li><Link to="/register">Register</Link></li>
-                        <li><Link to="/login">Login</Link></li>
-                        <li><Link to="/login">Logout</Link></li>
-                    </ul>
+                    <UserDropdownMenu/>
                 )}
             </div>
         </nav>
