@@ -33,7 +33,7 @@ export function Login(navigate : NavigateFunction, email : string, password : st
                 const status = data.status
 
                 if (status == 'approved') {
-                    localStorage.setItem('user', data.email)
+                    localStorage.setItem('user', data.userID)
                     navigate('/home');
                 } else {
                     navigate('/login')

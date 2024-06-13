@@ -5,44 +5,21 @@ import './Style.css';
 
 interface DataProps {
     label: string;
-    data: string;
-}
+    inputOnChange : (e : React.ChangeEvent<HTMLInputElement>)=>void
+}   
 
-const DataBox: React.FC<DataProps> = ({ label, data }) => {
+const DataBox: React.FC<DataProps> = ({label, inputOnChange}) => {
     return (
-        <div id='menu-infos'>
-            <div className='DataBox'>
-                <div id='Lbl_Data'>
-                    <label>{label}</label>
-                </div>
-                <div id='data'>
-                    <label>{data}</label>
-                    <img src={Edit} alt="Edit" />
-                </div>
-                <div id='line'>
-                    <img src={Line} alt="Line" />
-                </div>
+        <div className='DataBox'>
+            <div id='Lbl_Data'>
+                <label>{label}</label>
             </div>
-            <div id='description'>
-                <div className="DescBox">
-                    <label>Deskripsi</label>
-                    <div id='description'>
-                        <textarea />
-                        <img src={Edit} alt="" />
-                    </div>
-                </div>
+            <div id='data'>
+                <input onChange={inputOnChange}/>
+                <img src={Edit} alt="Edit" />
             </div>
-            <div className='DataBox'>
-                <div id='Lbl_Data'>
-                    <label>{label}</label>
-                </div>
-                <div id='data'>
-                    <label>{data}</label>
-                    <img src={Edit} alt="Edit" />
-                </div>
-                <div id='line'>
-                    <img src={Line} alt="Line" />
-                </div>
+            <div id='line'>
+                <img src={Line} alt="Line" />
             </div>
         </div>
     );

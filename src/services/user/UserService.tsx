@@ -2,12 +2,12 @@ import { DocumentData, collection, getDocs, query, where } from "firebase/firest
 import { db } from "../../firebase";
 
 export async function getUser(){
-    const email = localStorage.getItem('user');
+    const userID = localStorage.getItem('user');
     let role : string | null = null;
     let data : DocumentData = [];
 
-    if(email){
-        const q = query(collection(db, "users"), where('email', '==', email));
+    if(userID){
+        const q = query(collection(db, "users"), where('userID', '==', userID));
 
         const querySnapshot = await getDocs(q);
 

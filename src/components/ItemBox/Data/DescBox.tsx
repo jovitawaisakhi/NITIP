@@ -2,12 +2,17 @@ import React from 'react';
 import Edit from '../../../assets/edit.png';
 import './Style.css';
 
-const DescBox: React.FC = () => {
+interface DataProps {
+    label: string;
+    inputOnChange : (e : React.ChangeEvent<HTMLTextAreaElement>)=>void
+}  
+
+const DescBox: React.FC<DataProps> = ({label, inputOnChange}) => {
     return (
         <div className="DescBox">
-            <label>Deskripsi</label>
+            <label>{label}</label>
             <div id='description'>
-                <textarea />
+                <textarea onChange={inputOnChange} />
                 <img src={Edit} alt="" />
             </div>
         </div>

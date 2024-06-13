@@ -1,37 +1,35 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import addMenu from '../../../assets/add.png';
-import Edit from '../../../assets/edit.png';
-import Line from '../../../assets/longLine.png';
 import MenuBox from "../Food/MenuBox";
 import '../../../components/ItemBox/Data/Style.css';
+import DataBox from "../Data/DataBox";
+import DescBox from "../Data/DescBox";
+import { getAllFood } from "../../../services/food/FoodService";
+import { Food } from "../../../interfaces/Food";
 
 export default function RestoInfo(){
-    const [restaurantName, setRestaurantName] = useState<string|undefined>();
-    const [description, setDescription] = useState<string|undefined>();
+    const [restaurantName, setRestaurantName] = useState<string|undefined>('');
+    const [description, setDescription] = useState<string|undefined>('');
+    const [foods, setFoods] = useState<Food[]>([]);
+
+    useEffect(()=>{
+        const fetchAllFood = getAllFood();
+
+        fetchAllFood.then(foods =>{
+            setFoods(foods)
+        })
+    }, [])
 
     return(
         <div id='resto-info'>
-            <div className='DataBox'>
-                <div id='Lbl_Data'>
-                    <label>Restaurant Name</label>
-                </div>
-                <div id='data'>
-                    <input value={restaurantName} onChange={()=>setRestaurantName(restaurantName)}/>
-                    <img src={Edit} alt="Edit" />
-                </div>
-                <div id='line'>
-                    <img src={Line} alt="Line" />
-                </div>
-            </div>
+            <DataBox
+            label="Restaurant Name"
+            inputOnChange={(e)=>{setRestaurantName(e.target.value)}}/>
             <div id='description'>
-                <div className="DescBox">
-                    <label>Deskripsi</label>
-                    <div id='description'>
-                        <textarea value={description} onChange={()=>setDescription(description)}/>
-                        <img src={Edit} alt="" />
-                    </div>
-                </div>
+                <DescBox
+                label="Description"
+                inputOnChange={(e)=>setDescription(e.target.value)}/>
             </div>
 
             {/* komponen*/}
@@ -40,7 +38,9 @@ export default function RestoInfo(){
                     <label>Menu</label>
                 </div>
 
-                <MenuBox />
+                {foods.map((food, index)=>(
+                    <MenuBox key={index} food={food}/>
+                ))}
 
                 <Link to="/menuDetail">
                     <div id='addMenu'>
