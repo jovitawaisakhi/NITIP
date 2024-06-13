@@ -1,5 +1,5 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { auth, db } from "../firebase";
+import { auth, db } from "../../firebase";
 import { NavigateFunction } from "react-router-dom";
 import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
 

@@ -22,6 +22,15 @@
     margin-right: 15px;
 }
 
+#data input{
+    background-color: #eeeeee;
+    width: 100%;
+    border: none;
+    resize: none;
+    overflow: auto;
+    margin: 5px;
+}
+
 #data img{
     width: 15px;
     height: 12px;

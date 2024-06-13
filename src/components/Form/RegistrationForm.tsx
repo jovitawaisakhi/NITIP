@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Authentication.css';
-import { Register } from '../../services/AuthService';
+import { Register } from '../../services/user/AuthService';
 
 const RegistrationForm: React.FC = () => {
     const [username, setUsername] = useState<string>('');
@@ -65,8 +65,6 @@ const RegistrationForm: React.FC = () => {
         }
 
         setStatus(newStatus);
-
-        console.log(email)
 
         if (valid) {
             Register(navigate, email, password);

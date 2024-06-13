@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Authentication.css';
-import { Login } from '../../services/AuthService';
+import { Login } from '../../services/user/AuthService';
 
 const LoginForm: React.FC = () => {
     const [email, setEmail] = useState<string>('');

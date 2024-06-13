@@ -1,25 +1,27 @@
 import { Link } from "react-router-dom";
-import { getRoleUser } from "../../services/UserService";
-import { LogOut } from "../../services/AuthService";
+import { LogOut } from "../../services/user/AuthService";
 import { useEffect, useState } from "react";
+import { getUser } from "../../services/user/UserService";
 
 export default function UserDropdownMenu(){
-    const [role, setRole] = useState<string|null>('');
+    const [role, setRole] = useState<string|undefined>();
+    const [status, setStatus] = useState<string|undefined>()
 
     useEffect(()=>{
-        const getRole = async ()=>{
-            const fetched_role =  await getRoleUser()
-            setRole(fetched_role)
+        const fetchUser = async ()=>{
+            const user =  await getUser();
+            if(user){
+                setRole(user.role)
+                setStatus(user.status)
+            }
         }
-        getRole()
 
+        fetchUser()
     }, [])
-
-    console.log(role)
 
     return (
         <ul className="dropdown-menu">
-            {role == null && (
+            {!role && (
                 <>
                     <li><Link to="/login">Login</Link></li>
                     <li><Link to="/register">Register</Link></li>
@@ -32,7 +34,11 @@ export default function UserDropdownMenu(){
                 </>
             )}
 
-            {role == 'tenant' && (
+            {role == 'customer' && (
+                <li><Link to="/cart">Cart</Link></li>   
+            )}
+
+            {role == 'tenant' && status == 'approved' && (
                 <>
                     <li><Link to="/receiveOrder">Receive Order</Link></li>
                     <li><Link to="/restaurantDetail">Restaurant Detail</Link></li>
@@ -42,7 +48,6 @@ export default function UserDropdownMenu(){
 
             {role && (
                 <>
-                    <li><Link to="/cart">Cart</Link></li>
                     <li><Link to="/profile">Profile</Link></li>
                     <li><Link to="/login" onClick={LogOut}>Logout</Link></li>
                 </>

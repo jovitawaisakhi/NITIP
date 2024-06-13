@@ -10,16 +10,39 @@ interface DataProps {
 
 const DataBox: React.FC<DataProps> = ({ label, data }) => {
     return (
-        <div className='DataBox'>
-            <div id='Lbl_Data'>
-                <label>{label}</label>
+        <div id='menu-infos'>
+            <div className='DataBox'>
+                <div id='Lbl_Data'>
+                    <label>{label}</label>
+                </div>
+                <div id='data'>
+                    <label>{data}</label>
+                    <img src={Edit} alt="Edit" />
+                </div>
+                <div id='line'>
+                    <img src={Line} alt="Line" />
+                </div>
             </div>
-            <div id='data'>
-                <label>{data}</label>
-                <img src={Edit} alt="Edit" />
+            <div id='description'>
+                <div className="DescBox">
+                    <label>Deskripsi</label>
+                    <div id='description'>
+                        <textarea />
+                        <img src={Edit} alt="" />
+                    </div>
+                </div>
             </div>
-            <div id='line'>
-                <img src={Line} alt="Line" />
+            <div className='DataBox'>
+                <div id='Lbl_Data'>
+                    <label>{label}</label>
+                </div>
+                <div id='data'>
+                    <label>{data}</label>
+                    <img src={Edit} alt="Edit" />
+                </div>
+                <div id='line'>
+                    <img src={Line} alt="Line" />
+                </div>
             </div>
         </div>
     );
