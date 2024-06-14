@@ -51,12 +51,3 @@ export async function isEmailRegistered(email: string): Promise<boolean> {
 export function LogOut() {
     localStorage.removeItem('user');
 }
-
-export const getCurrentUserId = () => {
-    const user = auth.currentUser;
-    if (user) {
-        return user.uid;
-    } else {
-        throw new Error('No user logged in');
-    }
-};

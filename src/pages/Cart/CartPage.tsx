@@ -4,20 +4,21 @@ import Footer from '../../components/HeaderFooter/Footer';
 import CartBox from '../../components/ItemBox/Resto/CartBox';
 import './Cart.css';
 import { fetchUserCartItems } from '../../services/cart/CartService';
+import { useNavigate } from 'react-router-dom';
 
 const CartPage: React.FC = () => {
 
     const [cartItems, setCartItems] = useState<any[]>([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchCartData = async () => {
             try {
-                // const userId = getCurrentUserId(); 
-                // User ID masih nembak karena pas gw reload dia ngilang id nya
-                const userId = "NwTn3Bkb18XHFrbTkybHKxZ6tQz2"
-                const items = await fetchUserCartItems(userId);
-                console.log(userId)
-                console.log(items)
+                const userId = localStorage.getItem("user")
+                if(userId === null){
+                    navigate('/login')
+                }
+                const items = await fetchUserCartItems(userId!!);
                 setCartItems(items);
             } catch (error) {
                 console.error('Error fetching user cart items:', error);
