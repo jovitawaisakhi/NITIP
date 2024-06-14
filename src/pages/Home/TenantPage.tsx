@@ -11,9 +11,11 @@ const TenantPage: React.FC = () => {
             <Header />
 
             <div className='container' id='container-tenant'>
+
                 <div id='foodImg'>
                     <img src={foodImg} alt="" />
                 </div>
+
                 <div id='container-food'>
 
                     <div className='content-web' id='content-tenant'>
@@ -26,6 +28,7 @@ const TenantPage: React.FC = () => {
                     </div>
 
                 </div>
+                
             </div>
 
             <Footer />

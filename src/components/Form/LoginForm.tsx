@@ -1,48 +1,16 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import './Authentication.css';
-import { Login } from '../../services/user/AuthService';
+import { useHandleLogin } from './HandleLogin';
 
 const LoginForm: React.FC = () => {
-    const [email, setEmail] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
-    const [status, setStatus] = useState<{ email: string; password: string }>({
-        email: '',
-        password: '',
-    });
-    const navigate = useNavigate();
-
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        if (name === 'email') {
-            setEmail(value);
-        } else if (name === 'password') {
-            setPassword(value);
-        }
-    };
-
-    const handleLogin = (e: FormEvent) => {
-        e.preventDefault();
-
-        let valid = true;
-        const newStatus = { email: '', password: '' };
-
-        if (email === '') {
-            newStatus.email = "Email can't be empty";
-            valid = false;
-        }
-
-        if (password === '') {
-            newStatus.password = "Password can't be empty";
-            valid = false;
-        }
-
-        setStatus(newStatus);
-
-        if (valid) {
-            Login(navigate, email, password);
-        }
-    };
+    const {
+        email,
+        password,
+        status,
+        handleChange,
+        handleLogin,
+    } = useHandleLogin();
 
     return (
         <div className="container" id='container-form'>

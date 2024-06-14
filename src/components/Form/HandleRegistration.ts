@@ -1,6 +1,6 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Register } from '../../services/user/AuthService';
+import { Register, isEmailRegistered } from '../../services/user/AuthService';
 
 interface HandleRegistrationProps {
     role: string;
@@ -63,45 +63,79 @@ export const useHandleRegistration = ({ role }: HandleRegistrationProps): Handle
         }
     };
 
-    const handleRegister = (e: FormEvent) => {
+    const validateEmail = (email: string): boolean => {
+        const re = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+        return re.test(email);
+    };
+
+    const validatePassword = (password: string): boolean => {
+        const re = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/;
+        return re.test(password);
+    };
+
+    const validatePhoneNumber = (value: string): boolean => {
+        return /^\d*$/.test(value);
+    };    
+
+    const handleRegister = async (e: FormEvent) => {
         e.preventDefault();
 
         let valid = true;
-        const newStatus = { username: '', email: '', password: '', confirmPassword: '', tenantName: '', phoneNumber: '' };
+        const newStatus = {
+            username: '',
+            email: '',
+            password: '',
+            confirmPassword: '',
+            tenantName: '',
+            phoneNumber: '',
+        };
 
         if (role === 'customer') {
             if (username === '') {
-                newStatus.username = "Full name can't be empty";
+                newStatus.username = "Mohon masukkan nama lengkap";
                 valid = false;
             }
         } else if (role === 'tenant') {
             if (tenantName === '') {
-                newStatus.tenantName = "Tenant name can't be empty";
+                newStatus.tenantName = "Mohon masukkan nama tenant";
                 valid = false;
             }
             if (phoneNumber === '') {
-                newStatus.phoneNumber = "Phone number can't be empty";
+                newStatus.phoneNumber = "Mohon masukkan nomor telepon";
+                valid = false;
+            } else if (!validatePhoneNumber(phoneNumber)) {
+                newStatus.phoneNumber = "Nomor telepon hanya boleh berisi angka";
                 valid = false;
             }
         }
 
         if (email === '') {
-            newStatus.email = "Email can't be empty";
+            newStatus.email = "Mohon masukkan email";
+            valid = false;
+        } else if (!validateEmail(email)) {
+            newStatus.email = "Email harus dalam format 'xxx@gmail.com'";
+            valid = false;
+        } else if (await isEmailRegistered(email)) {
+            newStatus.email = "Email sudah terdaftar";
             valid = false;
         }
 
         if (password === '') {
-            newStatus.password = "Password can't be empty";
+            newStatus.password = "Mohon masukkan password";
+            valid = false;
+        } else if (!validatePassword(password)) {
+            newStatus.password = 'Password harus terdiri dari minimal 6 karakter, 1 angka, dan 1 karakter spesial';
             valid = false;
         }
 
         if (confirmPassword === '') {
-            newStatus.confirmPassword = "Password confirmation can't be empty";
+            newStatus.confirmPassword = "Mohon konfirmasi password anda";
             valid = false;
-        }
-
-        if (password !== confirmPassword) {
-            newStatus.confirmPassword = 'Passwords do not match';
+        } else if (!validatePassword(confirmPassword)) {
+            newStatus.confirmPassword = 'Password harus terdiri dari minimal 6 karakter, 1 angka, dan 1 karakter spesial';
+            valid = false;
+        } else if (password !== confirmPassword) {
+            newStatus.confirmPassword = 'Passwords tidak sesuai';
             valid = false;
         }
 

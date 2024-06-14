@@ -22,7 +22,6 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ role }) => {
 
     return (
         <div className='container' id='container-form'>
-
             <div className="forms">
                 <form onSubmit={handleRegister}>
                     <div>
@@ -30,49 +29,49 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ role }) => {
                     </div>
                     {role === 'customer' && (
                         <div className='field'>
-                            <p>Full Name</p>
+                            <p>Nama Lengkap</p>
                             <input
                                 type="text"
                                 name="username"
                                 value={username}
                                 onChange={handleChange}
                             />
-                            <ErrorMessage message={status.username} />
+                            <label className="Lbl_Status">{status.username}</label>
                         </div>
                     )}
                     {role === 'tenant' && (
                         <>
                             <div className='field'>
-                                <p>Tenant Name</p>
+                                <p>Nama Tenant</p>
                                 <input
                                     type="text"
                                     name="tenantName"
                                     value={tenantName}
                                     onChange={handleChange}
                                 />
-                                <ErrorMessage message={status.tenantName} />
+                                <label className="Lbl_Status">{status.tenantName}</label>
                             </div>
                             <div className='field'>
-                                <p>Phone Number</p>
+                                <p>Nomor Telepon</p>
                                 <input
                                     type="text"
                                     name="phoneNumber"
                                     value={phoneNumber}
                                     onChange={handleChange}
                                 />
-                                <ErrorMessage message={status.phoneNumber} />
+                                <label className="Lbl_Status">{status.phoneNumber}</label>
                             </div>
                         </>
                     )}
                     <div className='field'>
                         <p>Email</p>
                         <input
-                            type="email"
+                            type="text"
                             name="email"
                             value={email}
                             onChange={handleChange}
                         />
-                        <ErrorMessage message={status.email} />
+                        <label className="Lbl_Status">{status.email}</label>
                     </div>
                     <div className='field'>
                         <p>Password</p>
@@ -82,38 +81,29 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ role }) => {
                             value={password}
                             onChange={handleChange}
                         />
-                        <ErrorMessage message={status.password} />
+                        <label className="Lbl_Status">{status.password}</label>
                     </div>
                     <div className='field'>
-                        <p>Confirm Password</p>
+                        <p>Konfirmasi Password</p>
                         <input
                             type="password"
                             name="confirmPassword"
                             value={confirmPassword}
                             onChange={handleChange}
                         />
-                        <ErrorMessage message={status.confirmPassword} />
+                        <label className="Lbl_Status">{status.confirmPassword}</label>
                     </div>
                     <div className='redirect'>
-                        <label>Already have an account? </label>
-                        <Link to="/login">Login here!</Link>
+                        <label>Sudah punya akun? </label>
+                        <Link to="/login">Masuk di sini!</Link>
                     </div>
                     <div>
                         <button type="submit">Register</button>
                     </div>
                 </form>
             </div>
-
         </div>
     );
-};
-
-interface ErrorMessageProps {
-    message: string;
-}
-
-const ErrorMessage: React.FC<ErrorMessageProps> = ({ message }) => {
-    return message ? <label className="Lbl_Status">{message}</label> : null;
 };
 
 export default RegistrationForm;

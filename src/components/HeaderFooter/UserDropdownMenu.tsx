@@ -3,26 +3,26 @@ import { LogOut } from "../../services/user/AuthService";
 import { useEffect, useState } from "react";
 import { getUser } from "../../services/user/UserService";
 
-export default function UserDropdownMenu(){
-    const [role, setRole] = useState<string|undefined>();
-    const [status, setStatus] = useState<string|undefined>();
+export default function UserDropdownMenu() {
+    const [role, setRole] = useState<string | undefined>();
+    const [status, setStatus] = useState<string | undefined>();
     const [loading, setLoading] = useState<boolean>(true);
 
-    useEffect(()=>{
-        const fetchUser = async ()=>{
-            const user =  await getUser();
-            if(user){
+    useEffect(() => {
+        const fetchUser = async () => {
+            const user = await getUser();
+            if (user) {
                 setRole(user.role);
                 setStatus(user.status);
             }
-            setLoading(false); // Set loading to false once user data is fetched
+            setLoading(false);
         }
 
         fetchUser();
     }, []);
 
     if (loading) {
-        return null; // Render nothing while loading
+        return null;
     }
 
     return (
@@ -41,7 +41,10 @@ export default function UserDropdownMenu(){
             )}
 
             {role == 'customer' && (
-                <li><Link to="/cart">Cart</Link></li>   
+                <>
+                    <li><Link to="/cart">Cart</Link></li>
+                    <li><Link to="/orderHistory">Order History</Link></li>
+                </>
             )}
 
             {role == 'tenant' && status == 'approved' && (

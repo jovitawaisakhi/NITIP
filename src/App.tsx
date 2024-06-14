@@ -11,6 +11,7 @@ import PaymentPage from './pages/Payment/PaymentPage'
 import QRPage from './pages/Payment/QRPage'
 import OrderStatusPage from './pages/Order/OrderStatusPage'
 import FinishOrderPage from './pages/Order/FinishOrderPage'
+import OrderHistoryPage from './pages/Order/OrderHistoryPage'
 import ProfilePage from './pages/Profile/ProfilePage'
 import RestaurantDetailPage from './pages/DataManagement/RestaurantDetailPage'
 import MenuDetailPage from './pages/DataManagement/MenuDetailPage'
@@ -35,6 +36,7 @@ function App() {
         <Route path="/qr" element={<QRPage />} />
         <Route path="/statusOrder" element={<OrderStatusPage />} />
         <Route path="/finishOrder" element={<FinishOrderPage />} />
+        <Route path="/orderHistory" element={<OrderHistoryPage />} />
 
         <Route path="/profile" element={<ProfilePage />} />
 

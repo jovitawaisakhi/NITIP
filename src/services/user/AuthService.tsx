@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../firebase";
 import { NavigateFunction } from "react-router-dom";
@@ -21,28 +22,32 @@ export function Register(navigate : NavigateFunction, email : string, password :
     )
 }
 
-export function Login(navigate : NavigateFunction, email : string, password : string){
-    signInWithEmailAndPassword(auth, email, password).then( 
-        async() => {
-            const q = query(collection(db, "users"), where('email', '==', email));
+export async function Login(email: string, password: string) {
+    await signInWithEmailAndPassword(auth, email, password);
+    const q = query(collection(db, "users"), where('email', '==', email));
+    const querySnapshot = await getDocs(q);
 
-            const querySnapshot = await getDocs(q);
+    if (querySnapshot.empty) {
+        throw new Error("Email is not registered");
+    }
 
-            querySnapshot.forEach((doc) => {
-                const data = doc.data()
-                const status = data.status
+    const userDoc = querySnapshot.docs[0];
+    const data = userDoc.data();
+    const status = data.status;
 
-                if (status == 'approved') {
-                    localStorage.setItem('user', data.userID)
-                    navigate('/home');
-                } else {
-                    navigate('/login')
-                }
-            })
-        }
-    )
+    if (status === 'approved') {
+        localStorage.setItem('user', data.userID);
+    } else {
+        throw new Error("Password doesn't match");
+    }
 }
 
-export function LogOut(){
-    localStorage.removeItem('user')
+export async function isEmailRegistered(email: string): Promise<boolean> {
+    const q = query(collection(db, "users"), where('email', '==', email));
+    const querySnapshot = await getDocs(q);
+    return !querySnapshot.empty;
+}
+
+export function LogOut() {
+    localStorage.removeItem('user');
 }
