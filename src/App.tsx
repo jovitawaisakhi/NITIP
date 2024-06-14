@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom'
 import './App.css'
 import LoginPage from './pages/Authentication/LoginPage'
+import RegisRolePage from './pages/Authentication/RegisRolePage'
 import RegisterPage from './pages/Authentication/RegisterPage'
 import HomePage from './pages/Home/HomePage'
 import TenantPage from './pages/Home/TenantPage'
@@ -21,6 +22,7 @@ function App() {
         <Route path="/" element={<Navigate to="/home" />} />
 
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/regisRole" element={<RegisRolePage />} />
         <Route path="/register" element={<RegisterPage />} />
 
         <Route path="/home" element={<HomePage />} />

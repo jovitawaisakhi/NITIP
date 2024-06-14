@@ -46,4 +46,3 @@ export function Login(navigate : NavigateFunction, email : string, password : st
 export function LogOut(){
     localStorage.removeItem('user')
 }
-

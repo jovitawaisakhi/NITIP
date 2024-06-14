@@ -45,39 +45,41 @@ const LoginForm: React.FC = () => {
     };
 
     return (
-        <div className="forms">
-            <form onSubmit={handleLogin}>
-                <div>
-                    <h2>Login</h2>
-                </div>
-                <div className='field'>
-                    <label>Email</label>
-                    <input
-                        type="text"
-                        name="email"
-                        value={email}
-                        onChange={handleChange}
-                    />
-                    <label className="Lbl_Status">{status.email}</label>
-                </div>
-                <div className='field'>
-                    <label>Password</label>
-                    <input
-                        type="password"
-                        name="password"
-                        value={password}
-                        onChange={handleChange}
-                    />
-                    <label className="Lbl_Status">{status.password}</label>
-                </div>
-                <div className="redirect">
-                    <label>Belum punya akun? </label>
-                    <Link to="/register">Daftar di sini!</Link>
-                </div>
-                <div>
-                    <button type="submit">Login</button>
-                </div>
-            </form>
+        <div className="container" id='container-form'>
+            <div className="forms">
+                <form onSubmit={handleLogin}>
+                    <div>
+                        <h1>Login</h1>
+                    </div>
+                    <div className='field'>
+                        <p>Email</p>
+                        <input
+                            type="text"
+                            name="email"
+                            value={email}
+                            onChange={handleChange}
+                        />
+                        <label className="Lbl_Status">{status.email}</label>
+                    </div>
+                    <div className='field'>
+                        <p>Password</p>
+                        <input
+                            type="password"
+                            name="password"
+                            value={password}
+                            onChange={handleChange}
+                        />
+                        <label className="Lbl_Status">{status.password}</label>
+                    </div>
+                    <div className="redirect">
+                        <label>Belum punya akun? </label>
+                        <Link to="/regisRole">Daftar di sini!</Link>
+                    </div>
+                    <div>
+                        <button type="submit">Login</button>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 };
