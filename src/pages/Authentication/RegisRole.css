@@ -1,0 +1,40 @@
+#container-reg {
+    margin: 0px;
+    padding-top: 0px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#content-reg {
+    width: 80%;
+    margin: auto;
+    align-items: center;
+    text-align: center;
+}
+
+#content-reg h1 {
+    font-size: 30px;
+}
+
+.option{
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.option button{
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    background-color: #b14c02;
+    color: white;
+    cursor: pointer;
+}
+
+.option p{
+    font-weight: 600;
+    font-size: 15px;
+}

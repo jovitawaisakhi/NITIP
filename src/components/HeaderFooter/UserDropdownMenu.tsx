@@ -3,39 +3,48 @@ import { LogOut } from "../../services/user/AuthService";
 import { useEffect, useState } from "react";
 import { getUser } from "../../services/user/UserService";
 
-export default function UserDropdownMenu(){
-    const [role, setRole] = useState<string|undefined>();
-    const [status, setStatus] = useState<string|undefined>()
+export default function UserDropdownMenu() {
+    const [role, setRole] = useState<string | undefined>();
+    const [status, setStatus] = useState<string | undefined>();
+    const [loading, setLoading] = useState<boolean>(true);
 
-    useEffect(()=>{
-        const fetchUser = async ()=>{
-            const user =  await getUser();
-            if(user){
-                setRole(user.role)
-                setStatus(user.status)
+    useEffect(() => {
+        const fetchUser = async () => {
+            const user = await getUser();
+            if (user) {
+                setRole(user.role);
+                setStatus(user.status);
             }
+            setLoading(false);
         }
 
-        fetchUser()
-    }, [])
+        fetchUser();
+    }, []);
+
+    if (loading) {
+        return null;
+    }
 
     return (
         <ul className="dropdown-menu">
             {!role && (
                 <>
                     <li><Link to="/login">Login</Link></li>
-                    <li><Link to="/register">Register</Link></li>
+                    <li><Link to="/registerRole">Register</Link></li>
                 </>
             )}
 
             {role == 'admin' && (
                 <>
-                
+                    {/* Admin specific menu items */}
                 </>
             )}
 
             {role == 'customer' && (
-                <li><Link to="/cart">Cart</Link></li>   
+                <>
+                    <li><Link to="/cart">Cart</Link></li>
+                    <li><Link to="/orderHistory">Order History</Link></li>
+                </>
             )}
 
             {role == 'tenant' && status == 'approved' && (
@@ -53,5 +62,5 @@ export default function UserDropdownMenu(){
                 </>
             )}
         </ul>
-    )
+    );
 }

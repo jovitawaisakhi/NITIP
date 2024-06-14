@@ -9,8 +9,8 @@ const FoodBox: React.FC = () => {
                 <img src={foodImg} alt="" />
             </div>
             <div id="food-info">
-                <p id='food-name'>Hainan Rice</p>
-                <p>25.000</p>
+                <p id='food-names'>Hainan Rice</p>
+                <p id='food-price'>25.000</p>
             </div>
             <div id="addFood">
                 <button>Tambah</button>

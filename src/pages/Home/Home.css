@@ -1,3 +1,7 @@
+#container-home {
+    min-height: 0vh;
+}
+
 .welcome h2 {
     color: #b14c02;
 }

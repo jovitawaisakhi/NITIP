@@ -4,6 +4,7 @@
     background-color: #fff;
     border-radius: 15px;
     width: 100%;
+    height: 180px;
 }
 
 #food-image {
@@ -27,17 +28,16 @@
     padding: 20px 15px;
 }
 
-#food-info #food-name {
-    font-weight: 600;
-    font-size: 13px;
-    line-height: 20px;
+#food-info #food-names {
+    margin-top: 5px;
+    font-weight: 700;
+    font-size: 16px;
 }
 
-#food-info p {
+#food-info #food-price {
     margin: 5px 0;
     font-weight: 400;
-    font-size: 12px;
-    line-height: 18px;
+    font-size: 15px;
 }
 
 #addFood {
@@ -58,7 +58,7 @@
     cursor: pointer;
     transition: background-color 0.3s;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 15px;
     line-height: 18px;
 }
 
@@ -66,24 +66,51 @@
     background-color: #ffb689;
 }
 
+@media screen and (max-width: 1050px) {
+    .foodBox {
+        height: 160px;
+    }
+
+    #food-image {
+        width: 30%;
+    }
+}
+
 @media screen and (max-width: 900px) {
+    .foodBox {
+        height: 140px;
+    }
+
     #food-image {
         width: 35%;
     }
+    
+    #addFood button {
+        padding: 0px 13px;
+    }
+}
 
-    #food-info {
-        padding: 10px 15px;
+@media screen and (max-width: 600px) {
+    .foodBox {
+        height: 110px;
     }
 
-    #food-info #food-name {
+    #food-info #food-names {
+        margin: 0%;
         font-size: 13px;
     }
-    
-    #food-info p {
+
+    #food-info #food-price {
+        margin: 0%;
         font-size: 12px;
     }
 
+    #addFood {
+        padding: 15px 10px;
+    }
+    
     #addFood button {
+        padding: 0px 11px;
         font-size: 12px;
     }
 }

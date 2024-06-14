@@ -9,11 +9,14 @@ const TenantPage: React.FC = () => {
     return (
         <div>
             <Header />
-            <main>
+
+            <div className='container' id='container-tenant'>
+
                 <div id='foodImg'>
                     <img src={foodImg} alt="" />
                 </div>
-                <div className='container'>
+
+                <div id='container-food'>
 
                     <div className='content-web' id='content-tenant'>
                         <div className='foodList'>
@@ -25,7 +28,9 @@ const TenantPage: React.FC = () => {
                     </div>
 
                 </div>
-            </main>
+                
+            </div>
+
             <Footer />
         </div>
     );
