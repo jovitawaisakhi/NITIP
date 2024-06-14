@@ -1,19 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import foodImg from '../../../assets/hainan-rice.jpeg';
 import remove from '../../../assets/remove.png';
 import './Style.css';
+import { Cart } from '../../../interfaces/Cart';
 
-const CartBox: React.FC = () => {
+interface CartBoxProps {
+    data: Cart;
+}
+
+const CartBox: React.FC<CartBoxProps> = ({data}) => {
     return (
         <Link to="/payment">
             <div className="CartBox">
                 <div id="cart-image">
-                    <img src={foodImg} alt="" />
+                    <img src={data.tenant?.tenant_image} alt="" />
                 </div>
                 <div id="cart-info">
-                    <p id='resto-name'>Xiao Kee</p>
-                    <p>1 item(s)</p>
+                    <p id='resto-name'>{data.tenant?.name}</p>
+                    <p>{data.Foods.length} item(s)</p>
                 </div>
                 <div id="removeCart">
                     <div id='remove'>
