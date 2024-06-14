@@ -28,12 +28,12 @@ const LoginForm: React.FC = () => {
         const newStatus = { email: '', password: '' };
 
         if (email === '') {
-            newStatus.email = 'Email cannot be empty';
+            newStatus.email = "Email can't be empty";
             valid = false;
         }
 
         if (password === '') {
-            newStatus.password = 'Password cannot be empty';
+            newStatus.password = "Password can't be empty";
             valid = false;
         }
 

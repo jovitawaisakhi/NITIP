@@ -39,24 +39,29 @@ const RegistrationForm: React.FC = () => {
         let valid = true;
         const newStatus = { username: '', email: '', password: '', confirmPassword: '' };
 
-        if (username === '') {
-            newStatus.username = 'Username cannot be empty';
+        if (username === '' ) {
+            newStatus.username = "Username can't be empty";
             valid = false;
         }
 
         if (email === '') {
-            newStatus.email = 'Email cannot be empty';
+            newStatus.email = "Email can't be empty";
             valid = false;
         }
 
         if (password === '') {
-            newStatus.password = 'Password cannot be empty';
+            newStatus.password = "Password can't be empty";
             valid = false;
         }
 
         if (confirmPassword === '') {
-            newStatus.confirmPassword = 'Confirm Password cannot be empty';
+            newStatus.confirmPassword = "Password confirmation can't be empty";
             valid = false;
+        }
+
+        if(valid === false){
+            setStatus(newStatus);
+            return;
         }
 
         if (password !== confirmPassword) {
