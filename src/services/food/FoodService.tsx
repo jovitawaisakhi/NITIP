@@ -1,4 +1,4 @@
-import { addDoc, collection, deleteDoc, doc, getDocs, query, where } from "firebase/firestore"
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, query, setDoc, where } from "firebase/firestore"
 import { db } from "../../firebase"
 import { NavigateFunction } from "react-router-dom"
 import { Food } from "../../interfaces/Food";
@@ -13,6 +13,17 @@ export async function getAllFood(){
     })
 
     return foodList
+}
+
+export async function getFood(foodID : string | undefined) {
+    if(foodID){
+        const docRef = doc(db, "foods", foodID);
+        const docSnap = await getDoc(docRef);
+    
+        if (docSnap.exists()) {
+            return docSnap.data() as Food
+        } 
+    }
 }
 
 export async function getFoodID(foodName : string) {
@@ -57,9 +68,13 @@ export async function DeleteFood(foodID : string | null) {
     }
 }
 
-export async function UpdateFood(foodID : string) {
+export async function UpdateFood(foodID : string | undefined) {
     try {
-        
+        if(foodID){
+            await setDoc(doc(db, "foods", foodID), {
+                
+            })
+        }
     } catch (e) {
         console.log(e)
     }
