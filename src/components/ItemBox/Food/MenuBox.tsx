@@ -12,9 +12,6 @@ interface DataProps{
 
 const MenuBox: React.FC<DataProps> = ({food}) => {
     const [foodID, setFoodID] = useState<string | null>(null);
-    const handleUpdateMenu = ()=>{
-
-    }
 
     useEffect(()=>{
         const fetchData = async ()=>{
@@ -43,9 +40,9 @@ const MenuBox: React.FC<DataProps> = ({food}) => {
             </div>
             
             <div id="manageFood">
-                <Link to="/menuDetail">
+                <Link to={`/menuDetail/${foodID}`}>
                     <div id='edit'>
-                        <img onClick={handleUpdateMenu} src={Edit} alt="" />
+                        <img src={Edit} alt="" />
                     </div>
                 </Link>
                 <div id='remove'>

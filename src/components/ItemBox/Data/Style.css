@@ -45,6 +45,15 @@
     width: 100%;
 }
 
+/* Data Value Box */
+#Lbl_Data label{
+    font-weight: bold;
+}
+
+#data p{
+    margin: 0px;
+}
+
 /* DescBox */
 .DescBox {
     margin-bottom: 20px;
@@ -60,7 +69,7 @@
     align-items: end;
     background-color: #eeeeee;
     height: 80px;
-    padding: 10px;
+    padding: 8px;
     border: 1px solid black;
 }
 
@@ -77,4 +86,25 @@
 .DescBox #description img {
     width: 17px;
     height: 17px;
+}
+
+/* Desc Value Box */
+.DescBox #description p{
+    background-color: #eeeeee;
+    flex-grow: 1;
+    height: 80px;
+    margin: 0px;
+    border: none;
+    resize: none;
+    overflow: auto;
+    font-size: 14px;
+}
+
+.DescBox label{
+    font-weight: bold;
+}
+
+/* Menu List */
+#title label{
+    font-weight: bold;
 }

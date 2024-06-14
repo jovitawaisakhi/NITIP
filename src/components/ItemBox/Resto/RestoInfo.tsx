@@ -24,12 +24,12 @@ export default function RestoInfo(){
     return(
         <div id='resto-info'>
             <DataBox
-            label="Restaurant Name"
-            inputOnChange={(e)=>{setRestaurantName(e.target.value)}}/>
+                label="Restaurant Name"
+                inputOnChange={(e)=>{setRestaurantName(e.target.value)}}/>
             <div id='description'>
                 <DescBox
-                label="Description"
-                inputOnChange={(e)=>setDescription(e.target.value)}/>
+                    label="Description"
+                    inputOnChange={(e)=>setDescription(e.target.value)}/>
             </div>
 
             {/* komponen*/}

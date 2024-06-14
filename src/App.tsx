@@ -42,6 +42,7 @@ function App() {
 
         <Route path="/restaurantDetail" element={<RestaurantDetailPage />} />
         <Route path="/menuDetail" element={<MenuDetailPage />} />
+        <Route path="/menuDetail/:foodID" element={<MenuDetailPage />} />
       </Routes>
     </Router>
   )
