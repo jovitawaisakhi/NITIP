@@ -7,7 +7,8 @@
 }
 
 #cart-image {
-    width: 25%;
+    width: 200px;
+    height: 150px;
     overflow: hidden;
     border-radius: 10px 0px 0px 10px;
 }

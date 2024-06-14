@@ -1,6 +1,7 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Register, isEmailRegistered } from '../../services/user/AuthService';
+import { User } from '../../interfaces/User';
 
 interface HandleRegistrationProps {
     role: string;
@@ -141,8 +142,16 @@ export const useHandleRegistration = ({ role }: HandleRegistrationProps): Handle
 
         setStatus(newStatus);
 
+        const user : User = {
+            name : username,
+            email : email, 
+            phoneNumber : phoneNumber,
+            linkProfile : "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg",
+            dob : new Date (),
+        }
+
         if (valid) {
-            Register(navigate, email, password);
+            Register(navigate, user, password, role, tenantName);
         }
     };
 

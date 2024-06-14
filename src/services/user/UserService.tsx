@@ -1,21 +1,27 @@
-import { DocumentData, collection, getDocs, query, where } from "firebase/firestore";
+import { DocumentData, doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 
 export async function getUser(){
     const userID = localStorage.getItem('user');
-    let role : string | null = null;
     let data : DocumentData = [];
 
     if(userID){
-        const q = query(collection(db, "users"), where('userID', '==', userID));
+        const userDocRef = doc(db, 'users', userID);
+        const userDocSnap = await getDoc(userDocRef);
 
-        const querySnapshot = await getDocs(q);
+        if (userDocSnap.exists()) {
+            data = userDocSnap.data();
+            data = {...data, role: "customer"}
+        }
+        else{
+            const tenantDocRef = doc(db, 'tenant', userID);
+            const tenantDocSnap = await getDoc(tenantDocRef);
 
-        querySnapshot.forEach((doc) => {
-            data = doc.data()
-            
-            role = data.role
-        })
+            if (tenantDocSnap.exists()) {
+                data = tenantDocSnap.data();
+                data = {...data, role: "tenant"}
+            }
+        }
 
         return data
     } 

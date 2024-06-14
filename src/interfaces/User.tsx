@@ -1,8 +1,6 @@
 export type User = {
-    userID: string;
+    name : string,
     email : string,
-    role : string,
-    status : string,
     phoneNumber : string,
     linkProfile : string,
     dob : Date

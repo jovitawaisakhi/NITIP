@@ -13,7 +13,7 @@ const CartBox: React.FC<CartBoxProps> = ({data}) => {
         <Link to="/payment">
             <div className="CartBox">
                 <div id="cart-image">
-                    <img src={data.tenant?.tenant_image} alt="" />
+                    <img src={data.tenant?.linkProfile} alt="" />
                 </div>
                 <div id="cart-info">
                     <p id='resto-name'>{data.tenant?.name}</p>

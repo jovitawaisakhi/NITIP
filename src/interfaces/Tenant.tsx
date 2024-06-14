@@ -1,5 +1,8 @@
 export type Tenant = {
-    tenantID : string,
     name : string,
-    tenant_image : string,
+    linkProfile : string,
+    status : string,
+    email : string,
+    phoneNumber : string,
+    dob : Date
 }
