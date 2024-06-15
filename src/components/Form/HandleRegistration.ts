@@ -136,7 +136,7 @@ export const useHandleRegistration = ({ role }: HandleRegistrationProps): Handle
             newStatus.confirmPassword = 'Password harus terdiri dari minimal 6 karakter, 1 angka, dan 1 karakter spesial';
             valid = false;
         } else if (password !== confirmPassword) {
-            newStatus.confirmPassword = 'Passwords tidak sesuai';
+            newStatus.confirmPassword = 'Password tidak sesuai';
             valid = false;
         }
 

@@ -76,9 +76,12 @@ export async function tenantLogin(email: string, password: string) {
 }
 
 export async function isEmailRegistered(email: string): Promise<boolean> {
-    const q = query(collection(db, "users"), where('email', '==', email));
-    const querySnapshot = await getDocs(q);
-    return !querySnapshot.empty;
+    const userQuery = query(collection(db, "users"), where('email', '==', email));
+    const tenantQuery = query(collection(db, "tenant"), where('email', '==', email));
+    
+    const [userSnapshot, tenantSnapshot] = await Promise.all([getDocs(userQuery), getDocs(tenantQuery)]);
+    
+    return !userSnapshot.empty || !tenantSnapshot.empty;
 }
 
 export function LogOut() {
