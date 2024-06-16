@@ -61,6 +61,7 @@ const MenuDetailPage: React.FC = () => {
                         {food ? (
                             <div id='menu-infos'>
                                 <DataValueBox 
+                                    inputOnChange={(e)=>{setFoodName(e.target.value)}}
                                     data={food.foodName}
                                     label='Food Name'/>
                                 <div id='description'>
@@ -70,6 +71,7 @@ const MenuDetailPage: React.FC = () => {
                                         />
                                 </div>
                                 <DataValueBox
+                                    inputOnChange={(e)=>{setPrice(e.target.value)}}
                                     data={food.price}
                                     label='Price'/>
                             </div>

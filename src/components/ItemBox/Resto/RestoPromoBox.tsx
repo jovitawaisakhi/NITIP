@@ -7,7 +7,6 @@ const RestoPromoBox: React.FC = () => {
             <div className="resto-promo">
                 <div className="resto-promo-info">
                     <p id='resto-name'>Xiao Kee, Binus Anggrek</p>
-                    <p>Chinese Food [Food Category]</p>
                 </div>
             </div>
         </Link>

@@ -1,15 +1,19 @@
 import React from 'react';
-import hainan_rice from '../../../assets/hainan-rice.jpeg';
 import { Link } from 'react-router-dom';
 import './Style.css';
+import { Tenant } from '../../../interfaces/Tenant';
 
-const RestoRecomenBox: React.FC = () => {
+interface DataProps{
+    item : Tenant;
+}
+
+const RestoRecomenBox: React.FC<DataProps> = ({item}) => {
     return (
         <Link to="/tenant">
             <div className='resto-recomen'>
-                <img src={hainan_rice} alt="" />
+                <img src={item.linkProfile} alt="" />
                 <div className='resto-recomen-info'>
-                    <p>Xiao Kee, Binus Anggrek</p>
+                    <p>{item.name}</p>
                     <p id='rating'>⭐ 5.0</p>
                 </div>
             </div>

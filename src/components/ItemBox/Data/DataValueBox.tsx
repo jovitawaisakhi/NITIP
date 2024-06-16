@@ -2,16 +2,15 @@ import React from 'react';
 import Edit from '../../../assets/edit.png';
 import Line from '../../../assets/longLine.png';
 import './Style.css';
-import { UpdateFood } from '../../../services/food/FoodService';
-import { useParams } from 'react-router-dom';
 
 interface DataProps {
     label: string;
     data: string | number;
+    inputOnChange : (e : React.ChangeEvent<HTMLInputElement>)=>void;
 }   
 
-const DataValueBox: React.FC<DataProps> = ({label, data}) => {
-    const {foodID} = useParams();
+const DataValueBox: React.FC<DataProps> = ({label, data, inputOnChange}) => {
+    data = data.toString()
 
     return (
         <div className='DataBox'>
@@ -19,8 +18,8 @@ const DataValueBox: React.FC<DataProps> = ({label, data}) => {
                 <label>{label}</label>
             </div>
             <div id='data'>
-                <p>{data}</p>
-                <img onClick={()=>{UpdateFood(foodID)}} src={Edit} alt="Edit" />
+                <input type='text' value={data} onChange={inputOnChange}/>
+                <img src={Edit} alt="Edit" />
             </div>
             <div id='line'>
                 <img src={Line} alt="Line" />

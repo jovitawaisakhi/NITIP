@@ -6,6 +6,10 @@
     color: #b14c02;
 }
 
+.welcome h3{
+    font-weight: 300;
+}
+
 #search-box {
     display: flex;
     align-items: center;
