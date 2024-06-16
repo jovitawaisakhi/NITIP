@@ -1,53 +1,60 @@
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import addMenu from '../../../assets/add.png';
-import MenuBox from "../Food/MenuBox";
-import '../../../components/ItemBox/Data/Style.css';
-import DataBox from "../Data/DataBox";
-import DescBox from "../Data/DescBox";
-import { getAllFood } from "../../../services/food/FoodService";
-import { Food } from "../../../interfaces/Food";
+import React, { useState, useEffect } from 'react';
+import DataBox from '../Data/DataBox';
+import DescBox from '../Data/DescBox';
+import FoodsList from './FoodList';
+import { Tenant } from '../../../interfaces/Tenant';
 
-export default function RestoInfo(){
-    const [restaurantName, setRestaurantName] = useState<string|undefined>('');
-    const [description, setDescription] = useState<string|undefined>('');
-    const [foods, setFoods] = useState<Food[]>([]);
+interface RestoInfoProps {
+    tenant: Tenant;
+}
 
-    useEffect(()=>{
-        const fetchAllFood = getAllFood();
+const RestoInfo: React.FC<RestoInfoProps> = ({ tenant }) => {
+    const [restaurantName, setRestaurantName] = useState<string>(tenant.name);
+    const [description, setDescription] = useState<string>(tenant.desc!!);
 
-        fetchAllFood.then(foods =>{
-            setFoods(foods)
-        })
-    }, [])
+    useEffect(() => {
+        setRestaurantName(tenant.name);
+        setDescription(tenant.desc!!);
+    }, [tenant]);
 
-    return(
+    const handleRestaurantNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setRestaurantName(e.target.value);
+    };
+
+    const handleDescriptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setDescription(e.target.value);
+    };
+
+    return (
         <div id='resto-info'>
             <DataBox
                 label="Restaurant Name"
-                inputOnChange={(e)=>{setRestaurantName(e.target.value)}}/>
+                value={restaurantName}
+                inputOnChange={handleRestaurantNameChange}
+            />
             <div id='description'>
                 <DescBox
                     label="Description"
-                    inputOnChange={(e)=>setDescription(e.target.value)}/>
+                    value={description}
+                    inputOnChange={handleDescriptionChange}
+                />
             </div>
 
-            {/* komponen*/}
             <div id='menu-list'>
                 <div id='title'>
                     <label>Menu</label>
                 </div>
 
-                {foods.map((food, index)=>(
-                    <MenuBox key={index} food={food}/>
-                ))}
+                <FoodsList foods={tenant.foods!!} />
 
-                <Link to="/menuDetail">
+                {/* <Link to="/menuDetail">
                     <div id='addMenu'>
-                        <img src={addMenu} alt="" />
+                        <img src={addMenu} alt="Add Menu" />
                     </div>
-                </Link>
+                </Link> */}
             </div>
         </div>
-    )
-}
+    );
+};
+
+export default RestoInfo;
