@@ -3,6 +3,8 @@ import DataBox from '../Data/DataBox';
 import DescBox from '../Data/DescBox';
 import FoodsList from './FoodList';
 import { Tenant } from '../../../interfaces/Tenant';
+import { Link } from 'react-router-dom';
+import addMenu from '../../../assets/add.png';
 
 interface RestoInfoProps {
     tenant: Tenant;
@@ -47,11 +49,11 @@ const RestoInfo: React.FC<RestoInfoProps> = ({ tenant }) => {
 
                 <FoodsList foods={tenant.foods!!} />
 
-                {/* <Link to="/menuDetail">
+                <Link to="/menuDetail">
                     <div id='addMenu'>
                         <img src={addMenu} alt="Add Menu" />
                     </div>
-                </Link> */}
+                </Link>
             </div>
         </div>
     );

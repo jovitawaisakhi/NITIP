@@ -28,6 +28,7 @@ function App() {
 
         <Route path="/home" element={<HomePage />} />
         <Route path="/tenant" element={<TenantPage />} />
+        <Route path='/tenant/:tenantID' element={<TenantPage/>}/>
 
         <Route path="/cart" element={<CartPage />} />
 

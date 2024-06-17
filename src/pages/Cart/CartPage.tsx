@@ -7,7 +7,6 @@ import { fetchUserCartItems } from '../../services/cart/CartService';
 import { useNavigate } from 'react-router-dom';
 
 const CartPage: React.FC = () => {
-
     const [cartItems, setCartItems] = useState<any[]>([]);
     const navigate = useNavigate();
 

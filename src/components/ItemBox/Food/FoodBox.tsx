@@ -1,19 +1,29 @@
 import React from 'react';
-import foodImg from '../../../assets/hainan-rice.jpeg';
 import './Style.css';
+import { Food } from '../../../interfaces/Food';
+import { AddToCart } from '../../../services/cart/CartService';
+import { useNavigate, useParams } from 'react-router-dom';
 
-const FoodBox: React.FC = () => {
+interface DataProps{
+    food : Food;
+}
+
+const FoodBox: React.FC<DataProps> =({food}) => {
+    const userID = localStorage.getItem("user");
+    const { tenantID } = useParams<{ tenantID: string }>();
+    const navigate = useNavigate();
+
     return (
         <div className="foodBox">
             <div id="food-image">
-                <img src={foodImg} alt="" />
+                <img src={food.foodImage} alt="" />
             </div>
             <div id="food-info">
-                <p id='food-names'>Hainan Rice</p>
-                <p id='food-price'>25.000</p>
+                <p id='food-names'>{food.foodName}</p>
+                <p id='food-price'>{food.price}</p>
             </div>
             <div id="addFood">
-                <button>Tambah</button>
+                <button onClick={()=>{AddToCart(navigate, food.foodID!, tenantID!, userID!)}}>Tambah</button>
             </div>
         </div>
     );

@@ -1,6 +1,7 @@
 import { Food } from "./Food"
 
 export type Tenant = {
+    tenantID : string,
     name : string,
     linkProfile : string,
     status : string,

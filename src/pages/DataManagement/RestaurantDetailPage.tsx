@@ -9,7 +9,6 @@ import { fetchTenantAndFoodById } from '../../services/tenant/TenantService';
 import { useNavigate } from 'react-router-dom';
 
 const RestaurantDetailPage: React.FC = () => {
-
     const[tenant, setTenant] = React.useState<Tenant>();
     const navigate = useNavigate();
 
@@ -27,7 +26,6 @@ const RestaurantDetailPage: React.FC = () => {
                 }
             };
             fetchTenant();
-            console.log(tenant)
         }
     }, []);
 

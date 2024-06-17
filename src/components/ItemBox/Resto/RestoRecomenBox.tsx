@@ -9,12 +9,12 @@ interface DataProps{
 
 const RestoRecomenBox: React.FC<DataProps> = ({item}) => {
     return (
-        <Link to="/tenant">
+        <Link to={`/tenant/${item.tenantID}`}>
             <div className='resto-recomen'>
                 <img src={item.linkProfile} alt="" />
                 <div className='resto-recomen-info'>
                     <p>{item.name}</p>
-                    <p id='rating'>⭐ 5.0</p>
+                    <p id='rating'>⭐</p>
                 </div>
             </div>
         </Link>

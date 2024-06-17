@@ -7,7 +7,6 @@ import { User } from "../../interfaces/User";
 import { Tenant } from "../../interfaces/Tenant";
 
 export function Register(navigate : NavigateFunction, userRegist : User, password : string, role : string, tenantName : string){
-
     createUserWithEmailAndPassword(auth, userRegist.email, password).then((userCredential)=>{
         const user = userCredential.user;
 
@@ -18,6 +17,7 @@ export function Register(navigate : NavigateFunction, userRegist : User, passwor
         else if(role === 'tenant'){
             const userDocRef = doc(db, 'tenant', user.uid);
             const tenant : Tenant = {
+                tenantID: user.uid,
                 name : tenantName,
                 linkProfile : userRegist.linkProfile,
                 status : 'pending',

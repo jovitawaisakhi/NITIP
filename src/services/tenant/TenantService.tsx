@@ -27,7 +27,7 @@ export async function fetchTenantAndFoodById(tenantId: string): Promise<Tenant |
         const tenantDocSnap = await getDoc(tenantDocRef);
 
         if (tenantDocSnap.exists()) {
-            const tenantData = tenantDocSnap.data() as Tenant;
+            let tenantData = tenantDocSnap.data() as Tenant;
 
             const foodsCollectionRef = collection(db, 'foods');
             const q = query(foodsCollectionRef, where('tenantID', '==', tenantId));
@@ -44,6 +44,7 @@ export async function fetchTenantAndFoodById(tenantId: string): Promise<Tenant |
             });
 
             tenantData.foods = foods;
+            console.log(tenantData)
             return tenantData;
         } else {
             console.log('Tenant not found');
@@ -56,12 +57,18 @@ export async function fetchTenantAndFoodById(tenantId: string): Promise<Tenant |
 }
 
 export async function GetAllTenant() {
-    const tenants : Tenant[] = []
+    const tenants : Tenant[] = [];
+    let tenantTemp : Tenant;
+
     try {
         const querySnapshot = await getDocs(collection(db, "tenant"));
 
         querySnapshot.forEach((doc) => {
-            tenants.push(doc.data() as Tenant)
+            console.log(doc.id)
+            tenantTemp = doc.data() as Tenant;
+            tenantTemp = {...tenantTemp, tenantID: doc.id}
+            console.log(tenantTemp)
+            tenants.push(tenantTemp)
         });
 
         return tenants

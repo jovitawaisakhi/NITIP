@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import Header from '../../components/HeaderFooter/Navbar';
 import Footer from '../../components/HeaderFooter/Footer';
 import RestoRecomenBox from '../../components/ItemBox/Resto/RestoRecomenBox';
-import RestoPromoBox from '../../components/ItemBox/Resto/RestoPromoBox';
 import Search from '../../assets/search.png';
 import './Home.css';
 import { Tenant } from '../../interfaces/Tenant';
 import { GetAllTenant } from '../../services/tenant/TenantService';
+import RestoBox from '../../components/ItemBox/Resto/RestoBox';
 
 const HomePage: React.FC = () => {
     const [tenants, setTenants] = useState<Tenant[]>([]);
@@ -39,6 +39,8 @@ const HomePage: React.FC = () => {
 
     useEffect(()=>{
         fetchAllTenants();
+
+        console.log(filteredItems)
     }, [])
 
     return (
@@ -80,9 +82,11 @@ const HomePage: React.FC = () => {
                         <h2>Everyone's Favorite</h2>
                         <div className='slider-container'>
                             <div id='resto-promo-list' className="slider">
-
-                                <RestoPromoBox />
-                                <RestoPromoBox />
+                                {
+                                    filteredItems?.map((item, index)=>(
+                                        <RestoBox key={index} tenant={item} />
+                                    ))
+                                }
                             </div>
                         </div>
                     </div>

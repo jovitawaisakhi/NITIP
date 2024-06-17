@@ -91,7 +91,7 @@
 }
 
 /* RPB */
-.resto-promo {
+.resto-box {
     position: relative;
     width: 280px;
     height: 200px;
@@ -105,7 +105,7 @@
     flex: 0 0 auto;
 }
 
-.resto-promo-info {
+.resto-box-info {
     position: absolute;
     bottom: 0;
     color: white;
@@ -114,10 +114,10 @@
     text-align: left;
 }
 
-.resto-promo-info p {
+.resto-box-info p {
     margin: 2px;
 }
 
-.resto-promo-info #resto-name {
+.resto-box-info #resto-name {
     font-weight: bold;
 }
