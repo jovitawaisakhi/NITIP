@@ -44,7 +44,6 @@ export async function fetchTenantAndFoodById(tenantId: string): Promise<Tenant |
             });
 
             tenantData.foods = foods;
-            console.log(tenantData)
             return tenantData;
         } else {
             console.log('Tenant not found');

@@ -29,7 +29,6 @@ const TenantPage: React.FC = () => {
             fetchTenant();
         }
 
-        console.log(tenant?.foods?.length)
     }, []);
     
     return (
@@ -38,7 +37,7 @@ const TenantPage: React.FC = () => {
 
             <div className='container' id='container-tenant'>
                 <div id='foodImg'>
-                    <img src={foodImg} alt="" />
+                    <img src={tenant?.linkProfile} alt="" />
                 </div>
 
                 <div id='container-food'>

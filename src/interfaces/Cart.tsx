@@ -5,6 +5,6 @@ export type Cart = {
     cartID : string,
     tenantID : string,
     userID : string,
-    Foods : Food[],
+    Foods: { [key: string]: number };
     tenant? : Tenant
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import remove from '../../../assets/remove.png';
 import './Style.css';
@@ -8,16 +8,18 @@ interface CartBoxProps {
     data: Cart;
 }
 
+
 const CartBox: React.FC<CartBoxProps> = ({data}) => {
+
     return (
-        <Link to="/payment">
+        <Link to={`/payment/${data.cartID}`}>
             <div className="CartBox">
                 <div id="cart-image">
                     <img src={data.tenant?.linkProfile} alt="" />
                 </div>
                 <div id="cart-info">
                     <p id='resto-name'>{data.tenant?.name}</p>
-                    <p>{data.Foods.length} item(s)</p>
+                    <p>{Object.keys(data.Foods).length} item(s)</p>
                 </div>
                 <div id="removeCart">
                     <div id='remove'>
