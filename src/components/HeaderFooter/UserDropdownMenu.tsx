@@ -30,13 +30,13 @@ export default function UserDropdownMenu() {
             {!role && (
                 <>
                     <li><Link to="/login">Login</Link></li>
-                    <li><Link to="/registerRole">Register</Link></li>
+                    <li><Link to="/regisRole">Register</Link></li>
                 </>
             )}
 
             {role == 'admin' && (
                 <>
-                    {/* Admin specific menu items */}
+                    <li><Link to="/tenantReq">Tenant Request</Link></li>
                 </>
             )}
 
@@ -44,6 +44,7 @@ export default function UserDropdownMenu() {
                 <>
                     <li><Link to="/cart">Cart</Link></li>
                     <li><Link to="/orderHistory">Order History</Link></li>
+                    <li><Link to="/tenantReq">Tenant Request</Link></li>
                 </>
             )}
 

@@ -15,6 +15,7 @@ import OrderHistoryPage from './pages/Order/OrderHistoryPage'
 import ProfilePage from './pages/Profile/ProfilePage'
 import RestaurantDetailPage from './pages/DataManagement/RestaurantDetailPage'
 import MenuDetailPage from './pages/DataManagement/MenuDetailPage'
+import TenantReqPage from './pages/DataManagement/TenantReqPage'
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
         <Route path="/restaurantDetail" element={<RestaurantDetailPage />} />
         <Route path="/menuDetail" element={<MenuDetailPage />} />
         <Route path="/menuDetail/:foodID" element={<MenuDetailPage />} />
+        <Route path="/tenantReq" element={<TenantReqPage />} />
       </Routes>
     </Router>
   )

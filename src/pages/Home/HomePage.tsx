@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../../components/HeaderFooter/Navbar';
 import Footer from '../../components/HeaderFooter/Footer';
-import RestoRecomenBox from '../../components/ItemBox/Resto/RestoRecomenBox';
+import TenantBox from '../../components/ItemBox/Resto/TenantBox';
 import Search from '../../assets/search.png';
 import './Home.css';
 import { Tenant } from '../../interfaces/Tenant';
@@ -60,13 +60,13 @@ const HomePage: React.FC = () => {
                             </div>
                         </div>
 
-                        <div className='top-recomen'>
+                        <div className='tenants'>
                             <h2>Tenants</h2>
                             <div className="slider-container">
-                                <div id='resto-recomen-list' className="slider">
+                                <div id='tenants-list' className="slider">
                                     {
                                         filteredItems?.map((item, index)=>(
-                                            <RestoRecomenBox key={index} item={item} />
+                                            <TenantBox key={index} item={item} />
                                         ))
                                     }
                                 </div>

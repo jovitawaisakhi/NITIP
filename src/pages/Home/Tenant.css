@@ -43,10 +43,27 @@
     line-height: 24px;
 }
 
+#content-empty{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#content-empty img{
+    width: 15em;
+}
+
+#content-empty p{
+    font-size: 17px;
+    font-weight: bold;
+}
+
 @media screen and (max-width: 900px) {
 
     #container-tenant{
         margin-bottom: 0px;
+        min-height: 80vh;
     }
 
     #foodImg {
@@ -62,9 +79,18 @@
         margin: 0px;
         gap: 30px;
     }
+
+    #content-empty img{
+        width: 11em;
+    }
+    
+    #content-empty p{
+        font-size: 16px;
+    }
 }
 
 @media screen and (max-width: 600px) {
+
     #container-food{
         margin-top: 0px;
     }
@@ -79,5 +105,13 @@
 
     .foodList h2{
         font-size: 19px;
+    }
+
+    #content-empty img{
+        width: 9em;
+    }
+    
+    #content-empty p{
+        font-size: 14px;
     }
 }

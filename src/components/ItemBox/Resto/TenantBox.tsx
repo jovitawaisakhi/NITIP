@@ -7,12 +7,15 @@ interface DataProps{
     item : Tenant;
 }
 
-const RestoRecomenBox: React.FC<DataProps> = ({item}) => {
+const TenantBox: React.FC<DataProps> = ({item}) => {
     return (
         <Link to={`/tenant/${item.tenantID}`}>
-            <div className='resto-recomen'>
-                <img src={item.linkProfile} alt="" />
-                <div className='resto-recomen-info'>
+            <div className='tenant'>
+                <div id='tenant-image'>
+                    <img src={item.linkProfile} alt="" />
+                </div>
+                
+                <div className='tenant-info'>
                     <p>{item.name}</p>
                     <p id='rating'>⭐</p>
                 </div>
@@ -21,4 +24,4 @@ const RestoRecomenBox: React.FC<DataProps> = ({item}) => {
     );
 };
 
-export default RestoRecomenBox;
+export default TenantBox;

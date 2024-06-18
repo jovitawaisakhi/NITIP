@@ -66,8 +66,8 @@
     }
 }
 
-/* RRB */
-.resto-recomen {
+/* Tenant Box */
+.tenant {
     background-color: white;
     border-radius: 30px;
     box-shadow: 0px 4px 4px 0px #888888;
@@ -76,12 +76,20 @@
     flex: 0 0 auto;
 }
 
-.resto-recomen img {
+#tenant-image {
     width: 100%;
+    height: 200px;
+    overflow: hidden;
     border-radius: 30px 30px 0px 0px;
 }
 
-.resto-recomen-info {
+#tenant-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tenant-info {
     padding: 2px 20px;
     font-weight: bold;
 }
@@ -90,7 +98,7 @@
     text-align: right;
 }
 
-/* RPB */
+/* Resto Box (Promo Box) */
 .resto-box {
     position: relative;
     width: 280px;
@@ -120,4 +128,45 @@
 
 .resto-box-info #resto-name {
     font-weight: bold;
+}
+
+/* Tenant Request Box */
+.tr-box{
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.tr-box .tr-box-info #tr-name{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#decision{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#decision #accept{
+    width: 35px;
+    height: 35px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+#decision #decline{
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+#decision img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
