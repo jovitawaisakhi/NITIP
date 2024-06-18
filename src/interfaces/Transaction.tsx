@@ -1,3 +1,4 @@
+import { Tenant } from "./Tenant";
 import { User } from "./User";
 
 export type TransactionInterface = {
@@ -10,6 +11,7 @@ export type TransactionInterface = {
     tenantID : string,
     userID : string,
     user? : User,
+    tenant? : Tenant,
     foods? : FoodTransaction[]
 }
 

@@ -85,8 +85,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 15px 20px;
+    padding: 0px 10px;
 }
 
 #oh-info #resto-name {
@@ -94,6 +93,10 @@
     margin-bottom: 0px;
     font-weight: 700;
     font-size: 18px;
+}
+
+#oh-info label{
+    font-size: 10px;
 }
 
 #oh-info #date {

@@ -8,10 +8,8 @@ const RegisterPage: React.FC = () => {
     const role = queryParams.get('role');
 
     useEffect(() => {
-        // Add the class to body when component mounts
         document.body.classList.add('register-page-body');
         
-        // Clean up by removing the class when component unmounts
         return () => {
             document.body.classList.remove('register-page-body');
         };

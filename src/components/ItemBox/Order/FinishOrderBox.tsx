@@ -10,12 +10,6 @@ interface FOBoxProps {
 
 const FinishOrderBox: React.FC<FOBoxProps> = ({data, refreshTransactions}) => {
 
-    const [isClicked, setIsClicked] = useState<boolean>(false);
-
-    const handleButtonClick = () => {
-        setIsClicked(true);
-    };
-
     const onAccept = async () => {
         await acceptTransaction(data.transactionID); //ini error ga apaa
         refreshTransactions();
