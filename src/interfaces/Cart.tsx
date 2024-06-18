@@ -1,4 +1,3 @@
-import { Food } from "./Food";
 import { Tenant } from "./Tenant";
 
 export type Cart = {

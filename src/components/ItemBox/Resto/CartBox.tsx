@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import remove from '../../../assets/remove.png';
 import './Style.css';
@@ -25,7 +25,7 @@ const CartBox: React.FC<CartBoxProps> = ({data}) => {
                     <div id='remove'>
                         <img src={remove} alt="" />
                     </div>
-                </div>
+            </div>
             </div>
         </Link>
     );

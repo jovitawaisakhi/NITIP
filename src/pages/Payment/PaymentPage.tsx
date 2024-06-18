@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Header from '../../components/HeaderFooter/Navbar';
 import Footer from '../../components/HeaderFooter/Footer';
 import OrderBox from '../../components/ItemBox/Food/OrderBox';
@@ -8,8 +8,9 @@ import addOrder from '../../assets/add.png';
 import priceLine from '../../assets/longLine.png';
 import './Payment.css';
 import { Cart } from '../../interfaces/Cart';
-import { getCartById, updateQuantityInCart } from '../../services/cart/CartService';
+import { deleteCart, getCartById, updateQuantityInCart } from '../../services/cart/CartService';
 import { Food } from '../../interfaces/Food';
+import { addTransaction } from '../../services/transaction/TransactionService';
 
 const PaymentPage: React.FC = () => {
     const { cartID } = useParams<{ cartID: string }>();
@@ -17,6 +18,8 @@ const PaymentPage: React.FC = () => {
     const [foods, setFoods] = useState<Food[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [subtotal, setSubtotal] = useState<number>(0);
+    const [notes, setNotes] = useState<string>("");
+    const navigate = useNavigate();
  
     const calculation = () => { 
         if (cart && foods.length > 0) {
@@ -67,14 +70,39 @@ const PaymentPage: React.FC = () => {
         }
     };
 
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        if (!cart || subtotal === 0) {
+            console.error('Data keranjang atau subtotal tidak tersedia');
+            return;
+        }
+
+        try {
+            const transactionData = {
+                cartID: cartID!!,
+                tenantID : cart.tenantID,
+                userID : cart.userID,
+                cart : cart.Foods,
+                subtotal,
+                notes, 
+            };
+            await addTransaction(transactionData); 
+        await deleteCart(cartID!!);
+            navigate("/qr")
+        } catch (error) {
+            console.error('Gagal menambahkan transaksi:', error);
+        }
+    };
+
+
     return (
         <div>
             <Header />
             <main>
                 <div className='container'>
-
                     <div className='content-mobile' id='content-payment'>
-
+                    <form onSubmit={handleSubmit}>
                         <div className='order-summary'>
                             <h2>Order Summary</h2>
                             <div className='orderList'>
@@ -90,9 +118,14 @@ const PaymentPage: React.FC = () => {
                             </Link>
 
                             <div id='notes'>
-                                <img src={Notes} alt="" />
-                                <input type="text" placeholder="Tambahkan catatan..." />
-                            </div>
+                                    <img src={Notes} alt="" />
+                                    <input
+                                        type="text"
+                                        placeholder="Tambahkan catatan..."
+                                        value={notes}
+                                        onChange={(e) => setNotes(e.target.value)} 
+                                    />
+                                </div>
                         </div>
 
                         <div className='payment-detail'>
@@ -120,13 +153,10 @@ const PaymentPage: React.FC = () => {
                         </div>
 
                         <div id='pay'>
-                            <Link to="/qr">
-                                <button type='submit'>Bayar</button>
-                            </Link>
+                            <button type='submit'>Bayar</button>
                         </div>
-                        
+                    </form> 
                     </div>
-
                 </div>
             </main>
             <Footer />

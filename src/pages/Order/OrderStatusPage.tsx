@@ -11,9 +11,7 @@ const OrderStatusPage: React.FC = () => {
             <Header />
             <main>
                 <div className='container'>
-
                     <div className='content-mobile' id='content-OS'>
-
                         <div id='title'>
                             <h2>Order Status</h2>
                         </div>

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import Header from '../../components/HeaderFooter/Navbar';
 import Footer from '../../components/HeaderFooter/Footer';
-import foodImg from '../../assets/hainan-rice.jpeg';
 import FoodBox from '../../components/ItemBox/Food/FoodBox';
 import './Tenant.css';
 import { Tenant } from '../../interfaces/Tenant';
@@ -28,7 +27,6 @@ const TenantPage: React.FC = () => {
             };
             fetchTenant();
         }
-
     }, []);
     
     return (

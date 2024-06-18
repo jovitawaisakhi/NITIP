@@ -1,4 +1,4 @@
-import { getFirestore, collection, getDocs, query, where, addDoc, doc, updateDoc, arrayUnion, getDoc } from 'firebase/firestore';
+import { getFirestore, collection, getDocs, query, where, addDoc, doc, updateDoc, getDoc, deleteDoc } from 'firebase/firestore';
 import { Cart } from '../../interfaces/Cart';
 import { fetchTenantById } from '../tenant/TenantService';
 import { NavigateFunction } from 'react-router-dom';
@@ -17,7 +17,6 @@ export async function AddToCart(navigate: NavigateFunction, foodID: string, tena
                 const cartData = document.data();
                 const foods = cartData.Foods || {};
 
-                console.log("here")
                 if (foodID in foods) {
                     console.log('foodID:', foodID);
                     foods[foodID] += 1;
@@ -81,6 +80,11 @@ export const updateQuantityInCart = async (cartID: string, foodID: string, newQu
         console.error('Error updating quantity:', error);
         throw error; 
     }
+};
+
+export const deleteCart = async (cartID: string) => {
+    const cartRef = doc(db, 'cart', cartID);
+    await deleteDoc(cartRef);        
 };
 
 export const fetchUserCartItems = async (userId: string): Promise<Cart[]> => {

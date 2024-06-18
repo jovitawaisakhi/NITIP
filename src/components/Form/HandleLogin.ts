@@ -82,7 +82,7 @@ export const useHandleLogin = (): HandleLoginReturn => {
                 }
             }
         }
-    };
+    }
 
     return {
         email,

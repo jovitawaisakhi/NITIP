@@ -14,12 +14,10 @@ const TenantReqPage: React.FC = () => {
                     <div className='content-mobile'>
 
                         <h2>Tenant Request(s)</h2>
-
                         <div id='tr-list'>
                             <TenantReqBox />
                             <TenantReqBox />
                         </div>
-                        
                     </div>
 
                 </div>
