@@ -35,8 +35,8 @@ function App() {
 
         <Route path="/receiveOrder" element={<ReceiveOrderPage />} />
         <Route path="/payment/:cartID" element={<PaymentPage />} />
-        <Route path="/qr" element={<QRPage />} />
-        <Route path="/statusOrder" element={<OrderStatusPage />} />
+        <Route path="/qr/:cartID" element={<QRPage />} />
+        <Route path="/statusOrder/:transactionID" element={<OrderStatusPage />} />
         <Route path="/finishOrder" element={<FinishOrderPage />} />
         <Route path="/orderHistory" element={<OrderHistoryPage />} />
 

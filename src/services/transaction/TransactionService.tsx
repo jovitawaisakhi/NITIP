@@ -33,6 +33,47 @@ export const addTransaction = async (transactionData: TransactionData): Promise<
     }
 };
 
+export const fetchTransactionByTransactionID = async (transactionID: string) => {
+    try {
+        const transactionDoc = await getDoc(doc(db, 'transaction', transactionID));
+        if (transactionDoc.exists()) {
+            const transactionData = transactionDoc.data() as TransactionInterface;
+            return transactionData;
+        } else {
+            console.log('Transaction document not found');
+            return null;
+        }
+    } catch (error) {
+        console.error('Error fetching transaction:', error);
+        throw new Error('Failed to fetch transaction');
+    }
+}
+
+export const fetchTransactionByCartID = async (cartID: string) => {
+    try{
+        const transactionCollection = collection(db, 'transaction');
+        const q = query(
+            transactionCollection,
+            where('cartID', '==', cartID)
+        );
+
+        const querySnapshot = await getDocs(q);
+
+        const transactionData = querySnapshot.docs.map(doc => ({
+            transactionID: doc.id,
+            ...doc.data() as TransactionInterface
+        }))[0];
+        
+        transactionData.id = transactionData.transactionID;
+
+        return transactionData;
+    }
+    catch (error) {
+        console.error('Error fetching transactions:', error);
+        throw new Error('Failed to fetch transactions');
+    }
+}
+
 export const fetchTransactionsByTenantID = async (tenantID: string) => {
     try {
         const transactionsCollection = collection(db, 'transaction');
