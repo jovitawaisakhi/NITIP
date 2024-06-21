@@ -41,7 +41,7 @@ const QRPage: React.FC = () => {
                             </div>
                             <div id='price'>
                                 <label>Total:</label>
-                                <label>IDR {transaction?.subtotal}</label>
+                                <label>IDR {Number(transaction?.subtotal) + 1000}</label>
                             </div>
                             <div id='qr'>
                                 <label>Please scan the QR below to confirm your order</label>

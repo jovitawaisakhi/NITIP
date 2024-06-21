@@ -44,7 +44,6 @@ export default function UserDropdownMenu() {
                 <>
                     <li><Link to="/cart">Cart</Link></li>
                     <li><Link to="/orderHistory">Order History</Link></li>
-                    <li><Link to="/tenantReq">Tenant Request</Link></li>
                 </>
             )}
 
