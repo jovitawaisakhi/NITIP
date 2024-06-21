@@ -85,3 +85,10 @@
     line-height: 24px;
     cursor: pointer;
 }
+
+@media screen and (max-width: 600px) {
+    #content-OR{
+        margin-top: 30px;
+        margin-bottom: 0px;
+    }
+}
