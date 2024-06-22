@@ -1,4 +1,4 @@
-import { DocumentData, DocumentSnapshot, collection, doc, getDoc, getDocs, query, where } from "firebase/firestore";
+import { DocumentData, DocumentSnapshot, collection, doc, getDoc, getDocs, query, updateDoc, where } from "firebase/firestore";
 import { db } from "../../firebase";
 import { Tenant } from "../../interfaces/Tenant";
 import { Food } from "../../interfaces/Food";
@@ -74,4 +74,64 @@ export async function GetAllTenant() {
     } catch (error) {
         console.log(error)
     }
+}
+
+export async function GetAcpprovedTenants() {
+    const tenantCollection = collection(db, 'tenant');
+    const q = query(tenantCollection, where('status', '==', "approved"));
+    const querySnapshot = await getDocs(q);
+
+    let tenantTemp : Tenant;
+    let tenants : Tenant[] = [];
+
+    if(!querySnapshot.empty){
+        querySnapshot.forEach((document)=>{
+            tenantTemp = document.data() as Tenant;
+            tenantTemp = {...tenantTemp, tenantID: document.id}
+            tenants.push(tenantTemp);
+        })
+
+        return tenants;
+    }
+}
+
+export async function GetPendingTenant() {
+    const tenantCollection = collection(db, 'tenant');
+    const q = query(tenantCollection, where('status', '==', "pending"));
+    const querySnapshot = await getDocs(q);
+
+    let tenants : Tenant[] = [];
+
+    if(!querySnapshot.empty){
+        querySnapshot.forEach((document)=>{
+            tenants.push(document.data() as Tenant);
+
+        })
+
+        return tenants;
+    }
+}
+
+export async function AcceptTenant(tenantID : string) {
+    const docRef = doc(db, "tenant", tenantID);
+
+    await updateDoc(docRef, {
+        status: "approved",
+    }).then(() => {
+        console.log("Successfully updated!");
+    }).catch((error) => {
+        console.error(error);
+    });
+}
+
+export async function DeclineTenant(tenantID : string) {
+    const docRef = doc(db, "tenant", tenantID);
+
+    await updateDoc(docRef, {
+        status: "decline",
+    }).then(() => {
+        console.log("Successfully updated!");
+    }).catch((error) => {
+        console.error(error);
+    });
 }

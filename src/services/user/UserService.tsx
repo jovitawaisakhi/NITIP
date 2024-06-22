@@ -12,6 +12,10 @@ export async function getUser(){
         if (userDocSnap.exists()) {
             data = userDocSnap.data();
             data = {...data, role: "customer"}
+
+            if(data.email == "admin@gmail.com"){
+                data = {...data, role: "admin"}
+            }
         }
         else{
             const tenantDocRef = doc(db, 'tenant', userID);

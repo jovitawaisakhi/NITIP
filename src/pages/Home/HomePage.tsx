@@ -5,7 +5,7 @@ import TenantBox from '../../components/ItemBox/Resto/TenantBox';
 import Search from '../../assets/search.png';
 import './Home.css';
 import { Tenant } from '../../interfaces/Tenant';
-import { GetAllTenant } from '../../services/tenant/TenantService';
+import { GetAcpprovedTenants, GetAllTenant } from '../../services/tenant/TenantService';
 import RestoBox from '../../components/ItemBox/Resto/RestoBox';
 
 const HomePage: React.FC = () => {
@@ -28,7 +28,7 @@ const HomePage: React.FC = () => {
     };
 
     const fetchAllTenants = async()=>{
-        const tenants = await GetAllTenant();
+        const tenants = await GetAcpprovedTenants();
         if(tenants && !filteredItems){
             setTenants(tenants)
             setFilteredItems(tenants)
