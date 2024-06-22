@@ -49,10 +49,11 @@
 }
 
 #done{
-    width: 150px;
     height: 47px;
     margin-top: 30px;
-    margin-bottom: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #done button{

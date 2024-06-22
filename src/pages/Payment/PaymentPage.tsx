@@ -78,6 +78,8 @@ const PaymentPage: React.FC = () => {
             return;
         }
 
+        navigate("/qr/" + cartID)
+
         try {
             const transactionData = {
                 cartID: cartID!!,
@@ -89,7 +91,7 @@ const PaymentPage: React.FC = () => {
             };
             await addTransaction(transactionData); 
         await deleteCart(cartID!!);
-            navigate("/qr")
+            navigate("/qr/" + cartID)
         } catch (error) {
             console.error('Gagal menambahkan transaksi:', error);
         }
