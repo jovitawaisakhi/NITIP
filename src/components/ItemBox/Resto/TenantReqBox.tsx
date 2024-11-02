@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
+// import React, { useEffect } from 'react';
 // import { Tenant } from '../../../interfaces/Tenant';
 import Accept from '../../../assets/tick.png';
 import Decline from '../../../assets/cross.png';
 import './Style.css';
 import { Tenant } from '../../../interfaces/Tenant';
 import { AcceptTenant, DeclineTenant } from '../../../services/tenant/TenantService';
-import { ToastContainer, toast } from 'react-toastify';
 
 interface DataProps {
     tenant: Tenant;

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Style.css';
-import foodImg from '../../../assets/hainan-rice.jpeg'
+// import foodImg from '../../../assets/hainan-rice.jpeg';
 import { TransactionInterface } from '../../../interfaces/Transaction';
 
 interface OHBoxProps {

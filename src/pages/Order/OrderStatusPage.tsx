@@ -7,7 +7,7 @@ import './OrderStatus.css';
 import { useParams } from 'react-router-dom';
 import { fetchTransactionByTransactionID } from '../../services/transaction/TransactionService';
 import { TransactionInterface } from '../../interfaces/Transaction';
-import { set } from 'firebase/database';
+// import { set } from 'firebase/database';
 
 const OrderStatusPage: React.FC = () => {
 
